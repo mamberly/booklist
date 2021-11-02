@@ -2,9 +2,13 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+        <router-link to="/authors">Authors</router-link> |
+          <router-link to="/favorites"><img src=../assets/favorite.png"</router-link>
     </div>
     <router-view/>
+    <div class="footer">
+    <a class="footer-link" href="https://github.com/mamberly/booklist">Github Link</a>
+  </div>
   </div>
 </template>
 

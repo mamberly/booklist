@@ -4,7 +4,15 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+import book_data from './books.js'
+
+let data = {
+  books: book_data,
+  favorites = []
+}
+
 new Vue({
   router,
+  data,
   render: h => h(App)
 }).$mount('#app')
