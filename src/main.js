@@ -8,7 +8,7 @@ import book_data from './books.js'
 
 let data = {
   books: book_data,
-  favorites = []
+  favorites: []
 }
 
 new Vue({

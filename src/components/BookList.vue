@@ -4,8 +4,8 @@
     <div class="product" v-for="book in books" :key="book.bookID">
       <div class="info">
         <h1>{{book.title}}</h1>
-        <p>{{book.author}}</p>
-        <p>{{book.publication_date}}</p>
+        <h2>{{book.authors}}</h2>
+        <p>Published: {{book.publication_date}}</p>
       </div>
       <div class="price">
         <h2>{{book.rating}}</h2>
@@ -21,11 +21,13 @@
 export default {
   name: 'BookList',
   props: {
-    products: Array
+    books: Array
   },
   methods: {
     addToFavorites(item) {
-      this.$root.$data.favorites.push(item);
+      var index = this.$root.$data.favorites.indexOf(item);
+      if (index == -1)
+        this.$root.$data.favorites.push(item);
     },
   }
 }
@@ -39,49 +41,43 @@ export default {
 }
 
 .products {
-  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
 .product {
+  background-image: url("../assets/book.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 10px;
   margin-top: 50px;
-  width: 200px;
-}
-
-.product img {
-  border: 2px solid #333;
-  height: 250px;
-  width: 200px;
-  object-fit: cover;
-}
-
-.product .image {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 5px;
+  width: 300px;
 }
 
 .info {
-  background: #44AD4A ;
+  margin-top: 20px;
   color: #000;
-  padding: 10px 30px;
-  height: 80px;
+  padding: 10px 20px;
 }
 
 .info h1 {
-  font-size: 16px;
+  font-size: 20px;
+  color: white;
+  background-color: #3B5971;
 }
 
 .info h2 {
-  font-size: 14px;
+  font-size: 18px;
+  color: white;
 }
 
 .info p {
   margin: 0px;
-  font-size: 10px;
+  font-size: 15px;
+  background-color: #76B8EC;
+  color: #3B5971;
 }
 
 
@@ -97,6 +93,6 @@ button {
 }
 
 .auto {
-  margin-left: auto;
+  margin-left: 100px;
 }
 </style>
